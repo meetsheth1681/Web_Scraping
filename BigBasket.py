@@ -57,16 +57,9 @@ def a():
     df = pd.DataFrame.from_dict(bigBas)
     #print(df)
 
-
-    # Convert the dataframe to  Excel
-
-    today = date.today()
-    lc3 = today.strftime("%b-%d-%Y")
     df.to_excel(r'E:\FreshVeg_BB_'+lc3+'.xlsx')
-
-
-
-schedule.every().day.at("00:00").do(a)
+   
+schedule.every(2).minutes.do(a)
 
 while 1:
     schedule.run_pending()
